@@ -31,14 +31,14 @@ const UseStateExample = () => {
       <h4>UseState Example</h4>
       <p>Counter: {count}</p>
       <Button
-        style={{ marginRight: "10px" }}
+        style={{ marginRight: "8px" }}
         ref={buttonRef}
         onClick={() => handleCounter("Decrease")}
       >
         Decrease
       </Button>
       <button
-        style={{ backgroundColor: "red", marginRight: "10px" }}
+        style={{ backgroundColor: "red", marginRight: "8px" }}
         onClick={handleCounter}
       >
         Reset

@@ -1,11 +1,8 @@
 import { NavLink, Outlet } from "react-router-dom";
+import { isActiveStyle } from "../../utils";
 
 function HooksExample() {
-  const isActiveStyle = ({ isActive }) => {
-    return {
-      color: isActive ? "red" : "blue",
-    };
-  };
+
   return (
     <div className="hooks-wrapper">
       <div className="hooks-menu">

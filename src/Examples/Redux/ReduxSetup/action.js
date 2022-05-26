@@ -6,10 +6,14 @@ export const decrementAction = (dispatch) => {
   dispatch({ type: "DECREMENT" });
 };
 
-export const getRandomUserAction = async (dispatch) => {
+export const resetAction = (dispatch) => {
+  dispatch({ type: "RESET" });
+};
+
+export const getRandomUserAction = (size = 3) => async (dispatch) => {
   try {
     const res = await fetch(
-      "https://random-data-api.com/api/users/random_user?size=3",
+      `https://random-data-api.com/api/users/random_user?size=${size}`,
       { method: "GET" }
     );
     const data = await res.json();

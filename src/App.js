@@ -16,8 +16,11 @@ const HigherOrderComponent = lazy(() =>
   import("./Examples/HigherOrderComponent")
 );
 const ContextApi = lazy(() => import("./Examples/ContextApi"));
-const Redux = lazy(() => import("./Examples/ReduxSetup"));
-const ReduxToolkit = lazy(() => import("./Examples/ReduxToolkitSetup"));
+const ReduxHome = lazy(() => import("./Examples/Redux"));
+const ReduxSetup = lazy(() => import("./Examples/Redux/ReduxSetup"));
+const ReduxToolkitSetup = lazy(() =>
+  import("./Examples/Redux/ReduxToolkitSetup")
+);
 const GooglePage = lazy(() => import("./Examples/CssWorks/GooglePage"));
 
 function App() {
@@ -39,8 +42,13 @@ function App() {
                 <Route path="UseMemo" element={<UseMemoExample />} />
                 <Route path="UseRef" element={<UseRefExample />} />
               </Route>
-              <Route path="reduxSetup" element={<Redux />} />
-              <Route path="reduxToolkitSetup" element={<ReduxToolkit />} />
+              <Route path="redux" element={<ReduxHome />}>
+                <Route path="ReduxSetup" element={<ReduxSetup />} />
+                <Route
+                  path="ReduxToolkitSetup"
+                  element={<ReduxToolkitSetup />}
+                />
+              </Route>
               <Route path="contextApi" element={<ContextApi />} />
               <Route
                 path="higherOrderComponent"

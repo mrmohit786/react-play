@@ -77,3 +77,15 @@ button:hover {
 button:disabled {
   background-color: grey;
 }
+
+
+.redux-wrapper {
+  display: flex;
+  width: 100%;
+  
+  margin: 10px;
+}
+
+.redux-menu {
+  width: 24%;
+}

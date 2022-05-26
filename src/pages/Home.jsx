@@ -18,14 +18,10 @@ const Home = () => {
             </NavLink>
           </li>
           <li>
-            <NavLink style={isActiveStyle} to={"/reduxSetup"}>
+            <NavLink style={isActiveStyle} to={"/redux"}>
               Redux
             </NavLink>
           </li>
-          {/* <NavLink style={isActiveStyle} to={"/reduxToolkitSetup"}>
-        Redux Toolkit setup
-      </NavLink> */}
-
           <li>
             <NavLink style={isActiveStyle} to={"/contextApi"}>
               Context Api
