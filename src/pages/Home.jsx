@@ -7,33 +7,47 @@ const Home = () => {
       color: isActive ? "red" : "blue",
     };
   };
-
   return (
-    <div>
-      <h2>React Concepts</h2>
-      <NavLink style={isActiveStyle} to={"/hooks"}>
-        Hooks Examples
-      </NavLink>
-      <NavLink style={isActiveStyle} to={"/reduxSetup"}>
-        Redux setup
-      </NavLink>
-      <NavLink style={isActiveStyle} to={"/reduxToolkitSetup"}>
+    <main>
+      <aside>
+        <h4>React Concepts I have learn so far:</h4>
+        <ul>
+          <li>
+            <NavLink style={isActiveStyle} to={"/hooks"}>
+              Hooks
+            </NavLink>
+          </li>
+          <li>
+            <NavLink style={isActiveStyle} to={"/reduxSetup"}>
+              Redux
+            </NavLink>
+          </li>
+          {/* <NavLink style={isActiveStyle} to={"/reduxToolkitSetup"}>
         Redux Toolkit setup
-      </NavLink>
-      <NavLink style={isActiveStyle} to={"/contextApi"}>
-        context Api
-      </NavLink>
-      <NavLink style={isActiveStyle} to={"/higherOrderComponent"}>
-        higher Order Component
-      </NavLink>
-      <NavLink style={isActiveStyle} to={"/googleMaps"}>
-      google Maps
-      </NavLink>
-      <NavLink style={isActiveStyle} to={"/googlePage"}>
-      google Page
-      </NavLink>
-      <Outlet />
-    </div>
+      </NavLink> */}
+
+          <li>
+            <NavLink style={isActiveStyle} to={"/contextApi"}>
+              Context Api
+            </NavLink>
+          </li>
+          <li>
+            <NavLink style={isActiveStyle} to={"/higherOrderComponent"}>
+              Other concepts Examples
+            </NavLink>
+          </li>
+          {/* <NavLink style={isActiveStyle} to={"/googleMaps"}>
+        google Maps
+        </NavLink>
+        <NavLink style={isActiveStyle} to={"/googlePage"}>
+        google Page
+      </NavLink> */}
+        </ul>
+      </aside>
+      <section>
+        <Outlet />
+      </section>
+    </main>
   );
 };
 

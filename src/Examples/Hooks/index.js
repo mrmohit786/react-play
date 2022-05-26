@@ -1,18 +1,47 @@
-import UseStateExample from "./UseStateExample";
-import UseEffectExample from "./UseEffectExample";
-import UseReducerExample from "./UseReducerExample";
-import UseMemoExample from "./UseMemoExample";
-import UseRefExample from "./UseRefExample";
+import { NavLink, Outlet } from "react-router-dom";
 
 function HooksExample() {
+  const isActiveStyle = ({ isActive }) => {
+    return {
+      color: isActive ? "red" : "blue",
+    };
+  };
   return (
-    <>
-      <UseStateExample />
-      <UseEffectExample />
-      <UseReducerExample />
-      <UseMemoExample />
-      <UseRefExample />
-    </>
+    <div className="hooks-wrapper">
+      <div className="hooks-menu">
+        <h3>Hooks</h3>
+        <ul>
+          <li>
+            <NavLink style={isActiveStyle} to={"/hooks/UseState"}>
+              UseState
+            </NavLink>
+          </li>
+          <li>
+            <NavLink style={isActiveStyle} to={"/hooks/UseEffect"}>
+              UseEffect
+            </NavLink>
+          </li>
+          <li>
+            <NavLink style={isActiveStyle} to={"/hooks/UseReducer"}>
+              UseReducer
+            </NavLink>
+          </li>
+          <li>
+            <NavLink style={isActiveStyle} to={"/hooks/UseMemo"}>
+              UseMemo
+            </NavLink>
+          </li>
+          <li>
+            <NavLink style={isActiveStyle} to={"/hooks/UseRef"}>
+              UseRef
+            </NavLink>
+          </li>
+        </ul>
+      </div>
+      <div className="hooks-item">
+        <Outlet />
+      </div>
+    </div>
   );
 }
 

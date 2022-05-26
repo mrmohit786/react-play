@@ -16,12 +16,23 @@ const UseReducerExample = () => {
 
   return (
     <div>
-      <h3>UseReducerExample</h3>
-      <p onClick={() => dispatch({ type: "Decrement" })}>Decrement</p>
-      <p onClick={() => dispatch({ type: undefined })}>
-        {state && state.count}
-      </p>
-      <p onClick={() => dispatch({ type: "Increment" })}>Increment</p>
+      <h4>UseReducer Example</h4>
+      <p>Counter: {state.count}</p>
+      <button
+        style={{ marginRight: "8px" }}
+        disabled={state.count === 0}
+        onClick={() => dispatch({ type: "Decrement" })}
+      >
+        Decrement
+      </button>
+      <button
+        style={{ marginRight: "8px", backgroundColor: "red" }}
+        onClick={() => dispatch({ type: null })}
+        disabled={state.count === 0}
+      >
+        Reset
+      </button>
+      <button onClick={() => dispatch({ type: "Increment" })}>Increment</button>
     </div>
   );
 };

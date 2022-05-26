@@ -1,40 +1,18 @@
-import React, { useEffect, useMemo, useState } from "react";
+import React, { useMemo, useState } from "react";
 
 const UseMemoExample = () => {
-  const [count, setCount] = useState(0);
-  const [name, setName] = useState("");
-
-  const autoIncrementCount = () => {
-    let timeout;
-    if (count < 10) {
-      timeout = setTimeout(() => {
-        setCount((prev) => prev + 1);
-      }, 2000);
-    } else {
-      clearTimeout(timeout);
-    }
-
-    return () => clearTimeout(timeout);
-  };
-
-  useEffect(autoIncrementCount, [count]);
-
-  const displayCount = useMemo(() => {
-    console.log("MemoRunning");
-    return count * 10
-  }, [count]);
+  const [value, setValue] = useState(1);
+  const randomNumber = useMemo(() => Math.floor(value * 100), [value]);
 
   return (
     <div>
-      <h3>UseMemoExample</h3>
-      <p>count: {displayCount}</p>
+      <h4>UseMemo Example</h4>
       <input
-        type="text"
-        name="name"
-        id="name"
-        onChange={(e) => setName(e.target.value)}
+        type="number"
+        placeholder="Enter any number"
+        onChange={(e) => setValue(e.target.value)}
       />
-      <p>name: {name}</p>
+      <p>Calculated value: {randomNumber}</p>
     </div>
   );
 };
