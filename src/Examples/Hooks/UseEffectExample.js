@@ -26,7 +26,9 @@ const UseEffectExample = () => {
       <p>
         Auto Increment ({delay / 1000} seconds): {count}
       </p>
-      <button onClick={() => setCount(0)}>Reset</button>
+      <button disabled={count !== 10} onClick={() => setCount(0)}>
+        Reset
+      </button>
     </div>
   );
 };

@@ -7,13 +7,24 @@ const Child = memo(() => {
   return (
     <Context.Consumer>
       {({ name }) => (
-        <>
-          <p>
-            Value from Child: {name} <span>(render through context)</span>
-          </p>
-          <GrandChild />
-          <GreatGrandChild />
-        </>
+        <div className="context">
+          <h4>Context API Example</h4>
+          <ul>
+            <li>
+              <p>Child Component: word count({name.split("").length})</p>
+              <ul>
+                <li>
+                  <GrandChild />
+                  <ul>
+                    <li>
+                      <GreatGrandChild />
+                    </li>
+                  </ul>
+                </li>
+              </ul>
+            </li>
+          </ul>
+        </div>
       )}
     </Context.Consumer>
   );

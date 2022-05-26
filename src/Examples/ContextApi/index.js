@@ -1,10 +1,9 @@
-import React from "react";
+import React, { PureComponent } from "react";
 import Context from "./context";
 import Child from "./components/Child";
 
-/**
- * Context API using Functional Component
- */
+// Context API using Functional Component
+
 // const ContextApiUseCase = () => {
 //   const [name, setName] = useState("Hello from functional Component");
 //   const data = { name, setName };
@@ -17,17 +16,12 @@ import Child from "./components/Child";
 
 // export default React.memo(ContextApiUseCase);
 
-
-import { Component } from "react";
-
-/**
- * Context API using Class Component
- */
-export default class ContextApiUseCase extends Component {
-  constructor() {
-    super();
+// Context API using Class Component
+export default class ContextApiUseCase extends PureComponent {
+  constructor(props) {
+    super(props);
     this.state = {
-      name: "Hello from functional Component",
+      name: "",
       setName: this.setName,
     };
   }

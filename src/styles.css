@@ -89,3 +89,7 @@ button:disabled {
 .redux-menu {
   width: 24%;
 }
+
+.context {
+  margin: 10px;
+}

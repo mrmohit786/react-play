@@ -3,13 +3,11 @@ import { addUser } from "./slice";
 
 export const increment = createAction("increment");
 export const decrement = createAction("decrement");
+export const reset = createAction("reset");
 
-export const fetchUser = () => async dispatch => {
+export const fetchUser = (limit = 1) => async (dispatch) => {
   try {
-    const res = await fetch(
-      "https://random-data-api.com/api/users/random_user?size=3",
-      { method: "GET" }
-    );
+    const res = await fetch(`https://random-data-api.com/api/users/random_user?size=${limit}`);
     const data = await res.json();
     dispatch(addUser(data));
   } catch (err) {
