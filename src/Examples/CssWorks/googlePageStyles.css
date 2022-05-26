@@ -1,0 +1,48 @@
+.nav {
+  width: 100%;
+  height: 60px;
+}
+
+.menu-wrapper {
+  float: right;
+}
+
+.menu-item {
+  margin: 16px 8px;
+  display: inline;
+}
+
+.avatar {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+}
+
+.manage-icon {
+  width: 20px;
+  height: 20px;
+}
+.container {
+  text-align: center;
+  margin-top: 12%;
+}
+
+.google-image {
+  width: 20%;
+  height: 20%;
+}
+
+.btn {
+  border: none;
+  padding: 8px 12px;
+  margin: 20px 8px;
+  border-radius: 2px;
+  cursor: pointer;
+}
+
+.input-type {
+  border: 1px solid rgba(128, 128, 128, 0.681);
+  padding: 8px 20px;
+  width: 49%;
+  border-radius: 20px;
+}
