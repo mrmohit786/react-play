@@ -21,9 +21,9 @@ const Parent = () => {
       >
         Reset
       </button>
-      <button
-       disabled={count === 100}
-      onClick={() => dispatch(incrementAction)}>Increment</button>
+      <button disabled={count === 10} onClick={() => dispatch(incrementAction)}>
+        Increment
+      </button>
       <br />
       <Users />
     </div>

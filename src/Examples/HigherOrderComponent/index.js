@@ -9,22 +9,37 @@ class HigherOrderComponent extends Component {
     super();
     this.state = {
       loading: true,
+      repos: [],
+      username: "mrmohit786",
     };
   }
 
   componentDidMount() {
+    this.fetchRepos();
+  }
+
+  componentDidUpdate() {
+    if (!this.state.username && this.state.repos.length) {
+      this.setState({ repos: [] });
+    }
+  }
+
+  fetchRepos = () => {
     this.setState({ loading: true });
-    fetch(`https://api.github.com/users/hacktivist123/repos`)
+    fetch(`https://api.github.com/users/${this.state.username}/repos`)
       .then((json) => json.json())
       .then((repos) => {
         this.setState({ loading: false, repos: repos });
       });
-  }
+  };
   render() {
     return (
       <ListWithLoading
         isLoading={this.state.loading}
         repos={this.state.repos}
+        setUsername={(username) => this.setState({ username })}
+        username={this.state.username}
+        fetchRepos={this.fetchRepos}
       />
     );
   }

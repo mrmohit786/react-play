@@ -28,16 +28,10 @@ const Home = () => {
             </NavLink>
           </li>
           <li>
-            <NavLink style={isActiveStyle} to={"/higherOrderComponent"}>
+            <NavLink style={isActiveStyle} to={"/examples"}>
               Other concepts Examples
             </NavLink>
           </li>
-          {/* <NavLink style={isActiveStyle} to={"/googleMaps"}>
-        google Maps
-        </NavLink>
-        <NavLink style={isActiveStyle} to={"/googlePage"}>
-        google Page
-      </NavLink> */}
         </ul>
       </aside>
       <section>

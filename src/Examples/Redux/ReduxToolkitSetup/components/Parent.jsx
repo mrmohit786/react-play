@@ -27,7 +27,7 @@ const Parent = () => {
       >
         Reset
       </button>
-      <button disabled={value === 100} onClick={() => dispatch(increment())}>
+      <button disabled={value === 10} onClick={() => dispatch(increment())}>
         Increment
       </button>
       <br />
