@@ -3,13 +3,13 @@ import { BrowserRouter } from "react-router-dom";
 
 import ErrorBoundary from "./Components/ErrorBoundaries";
 import Loading from "./Components/Loading";
-import Header from "./Components/Header";
 import AppRoutes from "./routes";
+import StyledHeader from "./Components/StyledComponents/StyledHeader";
 
 function App() {
   return (
     <ErrorBoundary>
-      <Header />
+      <StyledHeader title="React Playground" />
       <BrowserRouter>
         <Suspense fallback={<Loading />}>
           <AppRoutes />
