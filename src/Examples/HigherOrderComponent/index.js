@@ -1,47 +1,67 @@
-import { Component } from "react";
+import axios from "axios";
+import { useEffect, useState } from "react";
+import useDebounce from "../Hooks/Custom/useDebounce";
 import List from "./List";
 import WithLoading from "./withLoading";
 
 const ListWithLoading = WithLoading(List);
 
-class HigherOrderComponent extends Component {
-  constructor() {
-    super();
-    this.state = {
-      loading: true,
-      repos: [],
-      username: "mrmohit786",
-    };
-  }
+const HigherOrderComponent = () => {
+  const [loading, setLoading] = useState(true);
+  const [repos, setRepos] = useState([]);
+  const handleSearch = useDebounce(() => {
+    fetchRepos();
+  }, 500);
+  const [username, setUsername] = useState("mrmohit786");
 
-  componentDidMount() {
-    this.fetchRepos();
-  }
+  useEffect(() => {
+    fetchRepos();
+  }, []);
 
-  componentDidUpdate() {
-    if (!this.state.username && this.state.repos.length) {
-      this.setState({ repos: [] });
+  const fetchRepos = async () => {
+    try {
+      setLoading(true);
+      const { data } = await axios(
+        `https://api.github.com/users/${username}/repos`
+      );
+      setRepos(data)
+      setLoading(false);
+    } catch (error) {
+      setRepos([])
+      setLoading(false);
     }
-  }
-
-  fetchRepos = () => {
-    this.setState({ loading: true });
-    fetch(`https://api.github.com/users/${this.state.username}/repos`)
-      .then((json) => json.json())
-      .then((repos) => {
-        this.setState({ loading: false, repos: repos });
-      });
   };
-  render() {
-    return (
-      <ListWithLoading
-        isLoading={this.state.loading}
-        repos={this.state.repos}
-        setUsername={(username) => this.setState({ username })}
-        username={this.state.username}
-        fetchRepos={this.fetchRepos}
+
+  return (
+    <>
+    <h4>Fetch GitHub Repos</h4>
+      <p>(uses Debounce concept 500ms)</p>
+      <input
+        style={{ marginRight: "10px" }}
+        type="text"
+        value={username}
+        name="github-username"
+        id="github-username"
+        required
+        onChange={(e) => setUsername(e.target.value)}
+        placeholder="Enter GitHub Username"
+        onKeyUp={handleSearch}
       />
-    );
-  }
-}
+       {username ? (
+        <p>
+          <strong style={{ color: "red" }}>{username}</strong>'s GitHub Repos
+        </p>
+      ) : (
+        <span style={{ color: "red", display: "block", fontSize: "12px" }}>
+          GitHub username is required
+        </span>
+      )}
+      <ListWithLoading
+      isLoading={loading}
+      repos={repos}
+    />
+    </>
+    
+  );
+};
 export default HigherOrderComponent;

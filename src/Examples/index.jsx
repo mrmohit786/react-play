@@ -21,6 +21,11 @@ const Examples = () => {
               Google Maps Integrations
             </NavLink>
           </li>
+          <li>
+            <NavLink style={isActiveStyle} to={"/examples/axiosRequest"}>
+              Axios Request
+            </NavLink>
+          </li>
         </ul>
       </div>
       <div className="example-item">

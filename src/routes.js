@@ -5,6 +5,7 @@ import Home from "./pages/Home";
 import Hooks from "./Examples/Hooks";
 import ReduxHomePage from "./Examples/Redux";
 import Examples from "./Examples";
+import AxiosRequest from "./Examples/AxiosRequest";
 
 // Hooks
 const UseEffectExample = lazy(() =>
@@ -53,6 +54,7 @@ const AppRoutes = () => {
             element={<HigherOrderComponent />}
           />
           <Route path="googleMaps" element={<GoogleMaps />} />
+          <Route path="axiosRequest" element={<AxiosRequest />} />
         </Route>
       </Route>
       <Route path="*" element={<PageNotFound />} />
