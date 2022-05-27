@@ -1,10 +1,8 @@
-import React from "react";
-
-const Header = () => {
+const Header = ({ title = "React Playground" }) => {
   return (
     <header>
       <nav>
-        <h2>React Playground</h2>
+        <h2>{title}</h2>
       </nav>
     </header>
   );
